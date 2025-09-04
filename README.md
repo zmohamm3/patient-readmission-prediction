@@ -1,103 +1,123 @@
-**Patient Readmission Risk Prediction** 
+# 🏥 Predicting Hospital Readmissions for Diabetic Patients
 
-A machine learning project that analyzes 100k+ hospital encounter records to predict the likelihood of patient readmission within 30 days. 
+## 📌 Project Overview
 
-# Patient Readmission Risk Prediction (Healthcare Analytics)
-Predicting hospital readmission within 30 days using ML and real-world healthcare data.
+Hospital readmissions are costly for healthcare providers and stressful for patients. This project leverages the **UCI Diabetes Dataset** to predict whether a patient will be readmitted within 30 days of discharge. The primary objective is to use machine learning to improve patient care and reduce healthcare costs.
 
-**Problem**
+---
 
-Hospital readmissions within 30 days of discharge are a critical challenge in the healthcare industry.
-They lead to:
+## 📊 Dataset
 
-⚠️ Higher healthcare costs for hospitals, patients, and insurance providers
-⚠️ Reduced quality of care and patient satisfaction
-⚠️ Financial penalties for hospitals under value-based care programs
-👉 The challenge is to identify patients at high risk of being readmitted so that hospitals can provide early interventions (follow-up care, personalized treatment, home visits).
+* **Source:** [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/diabetes+130-us+hospitals+for+years+1999-2008)
+* **Size:** 100,000+ patient encounters
+* **Features:** Demographics, lab tests, medications, diagnoses, hospital visits
+* **Target Variable:** `readmitted` (<30, >30, NO)
 
-**Goal**
+---
 
-Develop a machine learning model that:
-Predicts whether a patient will be readmitted within 30 days of discharge
-Identifies key risk factors driving readmissions (age, diagnoses, comorbidities, hospital stay)
-Provides actionable insights through dashboards and explainable ML for clinicians and hospital administrators
+## ⚙️ Workflow
 
+1. **Data Loading & Cleaning**
 
-**Table of Contents (optional, if long)**
+   * Replaced missing values
+   * Dropped identifier columns
+   * Encoded categorical features
 
-Easy navigation for big README files.
-Problem Statement / Motivation
-Why this project matters (e.g., healthcare costs, patient care quality).
-Short, impactful context.
-Dataset
-Source (Kaggle / UCI).
-Size, features, target variable.
-Any preprocessing done.
+2. **Exploratory Data Analysis (EDA)**
 
-**Project Workflow / Approach**
+   * Distribution of readmissions
+   * Feature inspection and correlations
 
-Steps: Data cleaning → EDA → Feature Engineering → Modeling → Evaluation → Dashboard/Deployment.
+3. **Modeling Approaches**
 
-You can include a simple workflow diagram.
+   * Logistic Regression (Base)
+   * Logistic Regression (Class Weight Balanced)
+   * Logistic Regression (SMOTE Oversampling)
+   * Random Forest
+   * XGBoost
 
-Tech Stack
+4. **Evaluation Metrics**
 
-Languages, libraries, tools.
+   * Accuracy
+   * Recall (sensitivity for positive cases)
+   * ROC-AUC
 
-Example: Python (Pandas, Scikit-learn, XGBoost, SHAP), Power BI, Streamlit, GitHub.
+---
 
-Modeling & Results
+## 📈 Results
 
-Models tried (Logistic Regression, Random Forest, XGBoost).
+| Model                              | Accuracy | Recall | ROC-AUC |
+| ---------------------------------- | -------- | ------ | ------- |
+| Logistic Regression (Base)         | \~0.75   | \~0.40 | \~0.70  |
+| Logistic Regression (Class Weight) | \~0.72   | \~0.55 | \~0.73  |
+| Logistic Regression (SMOTE)        | \~0.71   | \~0.58 | \~0.74  |
+| Random Forest                      | \~0.78   | \~0.45 | \~0.76  |
+| XGBoost                            | \~0.80   | \~0.52 | \~0.79  |
 
-Metrics (Accuracy, ROC-AUC, Precision/Recall).
+🔹 **Key Insight:** Handling class imbalance (via SMOTE or class weighting) significantly improves **Recall**, which is critical for healthcare applications.
 
-Plots/visuals/screenshots.
+---
 
-Dashboard / App Demo
+## 📊 Visualization
 
-Link to Streamlit app (if deployed).
+The notebook includes grouped bar charts comparing Accuracy, Recall, and ROC-AUC across all models:
 
-Screenshots of Power BI dashboard.
+![Model Comparison Chart](figures/model_comparison.png)
 
-Example:
+---
 
-### Streamlit Demo
-👉 [Live App Here](https://your-app-link.streamlit.app)
+## 🚀 How to Run
 
+1. Clone this repository:
 
-Project Structure
+   ```bash
+   git clone https://github.com/yourusername/diabetes-readmission-prediction.git
+   cd diabetes-readmission-prediction
+   ```
 
-Show folder tree for clarity.
+2. Install dependencies:
 
-How to Run
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Steps to clone repo, install requirements, and run notebooks/app.
+3. Run the notebook:
 
-Example:
+   ```bash
+   jupyter notebook Diabetes_Readmission.ipynb
+   ```
 
-git clone https://github.com/your-username/patient-readmission-prediction.git
-cd patient-readmission-prediction
-pip install -r requirements.txt
-streamlit run dashboard/app.py
+---
 
+## 📦 Requirements
 
-Future Improvements
+* Python 3.8+
+* pandas
+* numpy
+* scikit-learn
+* imbalanced-learn
+* matplotlib
+* xgboost
 
-What you would do next (deploy on cloud, use deep learning, etc.).
+---
 
-Contributors / Contact
+## 🔮 Future Work
 
-Your name, LinkedIn, portfolio link.
+* Hyperparameter tuning for XGBoost and Random Forest
+* Feature engineering (diagnosis grouping, temporal patterns)
+* Deep learning approaches (RNN/LSTM for sequential visits)
+* Deployment as a web app for hospital use
 
-License (optional)
+---
 
-MIT, Apache, etc., if you want open-source compliance.
+## 👨‍💻 Author
 
-✨ Bonus: Make It Stand Out
+**Zubair Mohammed**
+Data Analyst | SQL Engineer | Machine Learning Enthusiast
+[LinkedIn](https://www.linkedin.com) | [GitHub](https://github.com/yourusername)
 
-Add badges (e.g., Python, Streamlit, Power BI).
+---
 
-Add screenshots of EDA plots, dashboard, app.
+## 📜 License
 
-Add a workflow diagram (can use draw.io or Canva).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

@@ -62,7 +62,7 @@ Hospital readmissions are costly for healthcare providers and stressful for pati
 
 The notebook includes grouped bar charts comparing Accuracy, Recall, and ROC-AUC across all models:
 
-![Model Comparison Chart](figures/model_comparison.png)
+<img width="905" height="463" alt="Model comparision" src="https://github.com/user-attachments/assets/53b9cd80-aaad-447a-9e65-71063249bdf4" />
 
 ---
 

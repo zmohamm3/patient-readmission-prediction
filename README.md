@@ -114,7 +114,7 @@ The notebook includes grouped bar charts comparing Accuracy, Recall, and ROC-AUC
 
 **Zubair Mohammed**
 Data Analyst | SQL Engineer | Machine Learning Enthusiast
-[LinkedIn](https://www.linkedin.com) | [GitHub](https://github.com/yourusername)
+[LinkedIn]([https://www.linkedin.com](https://www.linkedin.com/in/mohammed-zubair-2b2048112/)) | [GitHub]([https://github.com/yourusername](https://github.com/zmohamm3))
 
 ---
 
